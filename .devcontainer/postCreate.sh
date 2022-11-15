@@ -1,8 +1,8 @@
 # update image
-apt-get -y update --no-install-recommends \
-  && apt-get -y upgrade --no-install-recommends \
-  && apt-get autoremove -y \
-  && apt-get clean -y
+sudo apt-get -y update --no-install-recommends \
+  && sudo apt-get -y upgrade --no-install-recommends \
+  && sudo apt-get autoremove -y \
+  && sudo apt-get clean -y
 
 # update pip
 pip install --no-cache-dir --upgrade pip

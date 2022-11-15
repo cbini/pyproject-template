@@ -8,8 +8,8 @@ apt-get -y update --no-install-recommends \
 pip install --no-cache-dir --upgrade pip
 
 # init pyproject and install dev dependencies 
-pdm init
-pdm add --dev mkdocs towncrier pytest tox dynaconf
+# pdm init
+# pdm add --dev mkdocs towncrier pytest tox dynaconf
 
 # create .gitignore
 function gi() {

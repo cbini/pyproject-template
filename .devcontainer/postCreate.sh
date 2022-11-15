@@ -15,7 +15,7 @@ gi linux,macos,windows,python >.gitignore
 
 # commit new files
 git add .
-git commit -m "Initial commit"
+git commit -m "Initial devcontainer commit"
 
 # install pdm dependencies
 pdm install
@@ -26,4 +26,4 @@ trunk init --yes-to-all --nocheck-sample
 
 # commit new files
 git add .
-git commit -m "PDM & Trunk files"
+git commit -m "Initial PDM & Trunk commit"

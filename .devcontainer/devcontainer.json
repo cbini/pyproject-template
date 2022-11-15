@@ -3,5 +3,5 @@
   "features": {
     "ghcr.io/devcontainers-contrib/features/pdm:1": {}
   },
-  "postCreateCommand": "./.devcontainer/postCreateCommand.sh"
+  "postCreateCommand": ".devcontainer/postCreate.sh"
 }

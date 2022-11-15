@@ -7,10 +7,6 @@ sudo apt-get -y update --no-install-recommends \
 # update pip
 pip install --no-cache-dir --upgrade pip
 
-# init pyproject and install dev dependencies 
-# pdm init
-pdm add --dev mkdocs towncrier pytest tox dynaconf
-
 # create .gitignore
 function gi() {
 	curl -sL https://www.toptal.com/developers/gitignore/api/\$@

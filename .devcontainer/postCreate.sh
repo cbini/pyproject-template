@@ -10,18 +10,20 @@ sudo apt-get -y update --no-install-recommends &&
 pip install --no-cache-dir --upgrade pip
 
 # create .gitignore
-function gi() { curl -sL https://www.toptal.com/developers/gitignore/api/\$@; }
+gi() { curl -sL https://www.toptal.com/developers/gitignore/api/\$@; }
 gi linux,macos,windows,python >.gitignore
 
 # commit new files
 git add .
 git commit -m "Initial commit"
 
-# install/init trunk, accept defaults
-curl https://get.trunk.io -fsSL | bash
-trunk init --yes-to-all --nocheck-sample
-trunk check --all --fix
+# install pdm dependencies
+pdm install
 
-# commit Trunk auto-corrected files
+# install/init trunk, accept defaults
+curl https://get.trunk.io -fsSL | bash -s -- -y
+trunk init --yes-to-all --nocheck-sample
+
+# commit new files
 git add .
-git commit -m "Trunk auto-fixes"
+git commit -m "PDM & Trunk files"

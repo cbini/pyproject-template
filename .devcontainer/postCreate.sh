@@ -1,3 +1,5 @@
+touch foo.bar
+
 # update image
 sudo apt-get -y update --no-install-recommends \
   && sudo apt-get -y upgrade --no-install-recommends \

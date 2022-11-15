@@ -1,16 +1,16 @@
+#!/bin/bash
+
 # update image
-sudo apt-get -y update --no-install-recommends \
-  && sudo apt-get -y upgrade --no-install-recommends \
-  && sudo apt-get autoremove -y \
-  && sudo apt-get clean -y
+sudo apt-get -y update --no-install-recommends &&
+	sudo apt-get -y upgrade --no-install-recommends &&
+	sudo apt-get autoremove -y &&
+	sudo apt-get clean -y
 
 # update pip
 pip install --no-cache-dir --upgrade pip
 
 # create .gitignore
-function gi() {
-	curl -sL https://www.toptal.com/developers/gitignore/api/\$@
-}
+function gi() { curl -sL https://www.toptal.com/developers/gitignore/api/\$@; }
 gi linux,macos,windows,python >.gitignore
 
 # commit new files

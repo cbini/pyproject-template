@@ -1,18 +1,11 @@
 [project]
-name = ""
+name = "{{ project_name }}"
 version = "0.1.0"
-description = ""
-authors = [
-  { name = "", email = "" },
-]
+description = "{{ description }}"
+authors = [{ name = "{{ name }}", email = "{{ email }}" }]
 requires-python = ">=3.7"
 license = { text = "GPL-3.0-or-later" }
-dependencies = [
-  "mkdocs",
-  "pytest",
-  "towncrier",  
-  "tox",
-]
+dependencies = []
 
 [project.optional-dependencies]
 
@@ -21,7 +14,7 @@ requires = ["pdm-pep517>=1.0.0"]
 build-backend = "pdm.pep517.api"
 
 [tool.pdm.dev-dependencies]
-dev = []
+dev = ["mkdocs", "pytest", "towncrier"]
 
 [tool.pdm.scripts]
 clean = { shell = "pdm run clean-build && pdm run clean-pyc && pdm run clean-test", help = "remove all build, test, coverage and Python artifacts" }

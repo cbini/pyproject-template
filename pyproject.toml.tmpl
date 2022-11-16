@@ -14,7 +14,7 @@ requires = ["pdm-pep517>=1.0.0"]
 build-backend = "pdm.pep517.api"
 
 [tool.pdm.dev-dependencies]
-dev = ["mkdocs", "pytest", "towncrier"]
+dev = ["mkdocs", "pytest", "towncrier", "mkdocs-material"]
 
 [tool.pdm.scripts]
 post_lock = { shell = "pdm export -f requirements -o requirements.txt", help = "Export the locked packages set to requirements.txt" }

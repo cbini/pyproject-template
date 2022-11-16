@@ -22,5 +22,6 @@ for tmpl_in in $(tree -af -I ".git|.trunk" --noreport -F -i); do
 	fi
 done
 
-# remove workflow when done
+# remove workflow files when done
+rm .github/envsubst.sh
 rm .github/workflows/post-create.yml

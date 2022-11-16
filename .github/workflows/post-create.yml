@@ -14,7 +14,7 @@ jobs:
         id: get_user
         with:
           route: GET /users/{username}
-          username: ${{ env.GITHUB_ACTOR }}
+          username: ${{ github.actor }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -29,7 +29,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git config --global user.name "${{ env.GITHUB_ACTOR }}"
-          git config --global user.email "${{ github.actor_id }}+${{ env.GITHUB_ACTOR }}@users.noreply.github.com"
+          git config --global user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
 
           git add -A
           git commit -m "Post-create action commit"

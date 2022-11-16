@@ -18,6 +18,9 @@ for tmpl_in in $(tree -af -I ".git|.trunk" --noreport -F -i); do
 
 	if [[ ${tmpl_in} == "./README.md.tmpl" ]]; then
 		echo "Copying file: README.md => docs/index.md"
-		cp README.md docs/index.md
+		mkdir -p docs && cp README.md docs/index.md
 	fi
 done
+
+# remove workflow when done
+rm .github/workflows/post-create.yml

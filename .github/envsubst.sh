@@ -2,7 +2,7 @@
 
 if [[ -d src/.tmpl ]]; then
 	echo "Processing src directory"
-	mv src/.tmpl src/"${FOO}"
+	mv src/.tmpl src/"${GITHUB_REPOSITORY_NAME}"
 fi
 
 for tmpl_in in $(tree -af -I ".git|.trunk" --gitignore --noreport -F -i); do

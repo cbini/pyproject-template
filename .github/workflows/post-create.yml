@@ -15,6 +15,8 @@ jobs:
         with:
           route: GET /users/{username}
           username: ${{ env.GITHUB_ACTOR }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run envsubst script
         run: bash .github/envsubst.sh

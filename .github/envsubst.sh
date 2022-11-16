@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for tmpl_in in $(tree -af -I ".git|.trunk" --gitignore --noreport -F -i); do
+for tmpl_in in $(tree -af -I ".git|.trunk" --noreport -F -i); do
 
 	if [[ -d ${tmpl_in} ]] && [[ ${tmpl_in} == "./src/.tmpl/" ]]; then
 		echo "Processing src directory"

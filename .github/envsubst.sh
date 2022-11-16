@@ -1,10 +1,10 @@
 #!/bin/bash
 
 for tmpl_in in $(tree -af -I ".git|.trunk" --gitignore --noreport -F -i); do
-
-	if [[ -d ${tmpl_in} ]] && [[ ${tmpl_in} == "./src/.tmpl" ]]; then
+echo "${tmpl_in}"
+	if [[ -d ${tmpl_in} ]] && [[ ${tmpl_in} == "./src/.tmpl/" ]]; then
 		echo "Processing src directory"
-		mv src/.tmpl src/"${GITHUB_REPOSITORY_NAME}"
+		mv src/.tmpl/ "src/${GITHUB_REPOSITORY_NAME}/"
 	fi
 
 	if [[ -f ${tmpl_in} ]] && [[ ${tmpl_in} =~ \.tmpl$ ]]; then
@@ -17,7 +17,7 @@ for tmpl_in in $(tree -af -I ".git|.trunk" --gitignore --noreport -F -i); do
 	fi
 
 	if [[ ${tmpl_in} == "./README.md.tmpl" ]]; then
-		# make README the docs index
-		cp README.md doc/index.md
+		echo "Copying file: README.md => docs/index.md"
+		cp README.md docs/index.md
 	fi
 done

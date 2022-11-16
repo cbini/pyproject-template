@@ -3,11 +3,6 @@ name: Post-Create Setup
 on: create
 
 # Parse github.event into environment variables
-env:
-  GITHUB_REPOSITORY_NAME: ${{ github.event.create.repository.name }}
-  GITHUB_REPOSITORY_DESC: ${{ github.event.create.description }}
-  GITHUB_ACTOR_ID: ${{ github.event.create.sender.id }}
-  GITHUB_ACTOR_DISPLAY_LOGIN: ${{ github.event.create.actor.display_login }}
 
 jobs:
   envsubst:
@@ -16,18 +11,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+      - name: GitHub API Request
+        uses: octokit/request-action@v2.1.0
+        id: get_user
+        with:
+          route: GET /users/{username}
+          username: ${{ env.GITHUB_ACTOR }}
 
       - name: Run envsubst script
         run: bash .github/envsubst.sh
+        env:
+          GITHUB_REPOSITORY_NAME: ${{ github.repository.name }}
+          GITHUB_REPOSITORY_DESC: ${{ github.event.description }}
+          GITHUB_ACTOR_ID: ${{ github.actor_id }}
+          GITHUB_ACTOR_NAME: ${{ fromJson(steps.get_user.outputs.data).name }}
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "${{ github.event.create.actor.display_login }}"
-          git config --global user.email "${{ github.event.create.actor.id }}+${{ github.event.create.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ env.GITHUB_ACTOR }}"
+          git config --global user.email "${{ github.actor_id }}+${{ env.GITHUB_ACTOR }}@users.noreply.github.com"
 
           git add -A
           git commit -m "Post-create action commit"

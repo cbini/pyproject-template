@@ -10,7 +10,9 @@ sudo apt-get -y update --no-install-recommends &&
 pip install --no-cache-dir --upgrade pip
 
 # create .gitignore
-gi() { curl -sL https://www.toptal.com/developers/gitignore/api/\$@; }
+function gi() {
+	curl -sL "https://www.toptal.com/developers/gitignore/api/${1}"
+}
 gi linux,macos,windows,python >.gitignore
 
 # commit new files

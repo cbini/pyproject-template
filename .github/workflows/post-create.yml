@@ -19,15 +19,15 @@ jobs:
       - name: Run envsubst script
         run: bash .github/envsubst.sh
         env:
-          GITHUB_REPOSITORY_NAME: ${{ github.repository.name }}
+          GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
           GITHUB_REPOSITORY_DESC: ${{ github.event.description }}
-          GITHUB_ACTOR_ID: ${{ github.actor_id }}
+          GITHUB_ACTOR_ID: ${{ fromJson(toJSON(github)).actor_id }}
           GITHUB_ACTOR_NAME: ${{ fromJson(steps.get_user.outputs.data).name }}
 
       - name: Commit and push changes
         run: |
           git config --global user.name "${{ env.GITHUB_ACTOR }}"
-          git config --global user.email "${{ github.actor_id }}+${{ env.GITHUB_ACTOR }}@users.noreply.github.com"
+          git config --global user.email "${{ fromJson(toJSON(github)).actor_id }}+${{ env.GITHUB_ACTOR }}@users.noreply.github.com"
 
           git add -A
           git commit -m "Post-create action commit"

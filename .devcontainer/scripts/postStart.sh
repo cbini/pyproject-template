@@ -26,3 +26,4 @@ echo
 # completions
 eval "$(pdm completion)"
 eval "$(pip completion --bash)"
+eval "$(gh completion -s bash)"

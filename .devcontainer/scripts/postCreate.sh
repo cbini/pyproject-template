@@ -2,8 +2,8 @@
 
 # update apt packages
 sudo apt-get -y update --no-install-recommends &&	
+	sudo apt-get -y install --no-install-recommends bash-completion &&
 	sudo apt-get -y upgrade --no-install-recommends &&
-	sudo apt-get -y install --no-install-recommends bash-completion
 	sudo apt-get autoremove -y &&
 	sudo apt-get clean -y
 

@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # update apt packages
-sudo apt-get -y update --no-install-recommends &&
-	sudo apt-get -y upgrade --no-install-recommends &&
-	sudo apt-get autoremove -y &&
-	sudo apt-get clean -y
+sudo apt-get -qq -y update --no-install-recommends &&
+	sudo apt-get -qq -y upgrade --no-install-recommends &&
+	sudo apt-get -qq autoremove -y &&
+	sudo apt-get -qq clean -y
 
 # update pip
 python -m pip install --no-cache-dir --upgrade pip
@@ -13,4 +13,4 @@ python -m pip install --no-cache-dir --upgrade pip
 pdm self update
 
 # update trunk
-trunk upgrade -y
+trunk upgrade -y --no-progress

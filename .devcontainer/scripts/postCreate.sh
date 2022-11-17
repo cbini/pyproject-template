@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # update apt packages
-sudo apt-get -y update --no-install-recommends &&	
-	sudo apt-get -y install --no-install-recommends bash-completion &&
-	sudo apt-get -y upgrade --no-install-recommends &&
-	sudo apt-get autoremove -y &&
-	sudo apt-get clean -y
+sudo apt-get -qq -y update --no-install-recommends &&
+	sudo apt-get -qq -y install --no-install-recommends bash-completion &&
+	sudo apt-get -qq -y upgrade --no-install-recommends &&
+	sudo apt-get -qq autoremove -y &&
+	sudo apt-get -qq clean -y
 
 # update pip
 pip install --no-cache-dir --upgrade pip
@@ -25,7 +25,7 @@ pdm install
 
 # install/init trunk, accept defaults
 curl https://get.trunk.io -fsSL | bash -s -- -y
-trunk init --yes-to-all --nocheck-sample
+trunk init --yes-to-all --nocheck-sample --no-progress
 
 # commit new files
 git add .

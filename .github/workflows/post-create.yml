@@ -19,7 +19,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run envsubst script
-        run: bash .github/envsubst.sh
+        run: bash .github/scripts/envsubst.sh
         env:
           GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
           GITHUB_REPOSITORY_DESC: ${{ github.event.description }}

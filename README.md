@@ -7,4 +7,4 @@
 3. Click <kbd>Create repository from template</kbd>
 4. Confirm the `Post-Create Setup` action completed successfully
 5. Click <kbd>Use this template</kbd> > <kbd>Open in a codespace</kbd>
-6. Wait for ...
+6. Wait for the `postCreate` script to complete

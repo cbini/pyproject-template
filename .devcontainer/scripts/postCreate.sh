@@ -25,7 +25,7 @@ pdm install
 
 # install/init trunk, accept defaults
 curl https://get.trunk.io -fsSL | bash -s -- -y
-trunk init --yes-to-all --nocheck-sample --no-progress
+trunk init --force --yes-to-all --nocheck-sample --no-progress
 
 # commit new files
 git add .

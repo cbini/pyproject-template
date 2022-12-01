@@ -27,6 +27,10 @@ jobs:
           GITHUB_ACTOR_ID: ${{ github.actor_id }} # trunk-ignore(actionlint/expression)
           GITHUB_ACTOR_NAME: ${{ fromJson(steps.get_user.outputs.data).name }}
 
+      - name: Self-destruct
+        run: |
+          rm .github/workflows/post-create.yaml .github/scripts/envsubst.sh
+      
       - name: Commit and push changes
         # trunk-ignore(actionlint/expression)
         run: |
@@ -36,14 +40,3 @@ jobs:
           git add -A
           git commit -m "Post-create action commit"
           git push
-
-      # https://github.com/octokit/request-action
-      - name: Disable this workflow
-        uses: octokit/request-action@v2.1.7
-        with:
-          route: PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.event.repository.name }}
-          workflow_id: "post-create.yml"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

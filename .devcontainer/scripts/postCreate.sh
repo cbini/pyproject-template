@@ -10,11 +10,6 @@ sudo apt-get -qq -y update --no-install-recommends &&
 # update pip
 python -m pip install --no-cache-dir --upgrade pip
 
-# create .gitignore fn
-function gi() {
-	curl -sL "https://www.toptal.com/developers/gitignore/api/${1}"
-}
-
 # install Trunk
 curl https://get.trunk.io -fsSL | bash -s -- -y
 

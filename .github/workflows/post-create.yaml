@@ -51,7 +51,6 @@ jobs:
           trunk check --all --fix
 
       - name: Commit & push all changes
-        # trunk-ignore(actionlint/expression)
         run: |          
           git add -A
           git commit -m "Post-create action commit"

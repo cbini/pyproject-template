@@ -53,6 +53,5 @@ jobs:
       - name: Commit & push all changes
         run: |          
           git add -A
-          git commit -m "Post-create action commit"
           git commit -m "Initial Trunk commit"
           git push origin main

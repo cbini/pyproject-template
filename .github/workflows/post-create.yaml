@@ -3,7 +3,7 @@ name: Post-Create Setup
 on: create
 
 jobs:
-  envsubst:
+  post_create:
     runs-on: ubuntu-latest
 
     steps:
@@ -47,8 +47,7 @@ jobs:
           curl https://get.trunk.io -fsSL | bash -s -- -y
           trunk init --yes-to-all --nocheck-sample
           trunk actions enable trunk-announce trunk-check-pre-push trunk-fmt-pre-commit
-          trunk config share
-          trunk check --all --fix
+          trunk check --all --fix --ci
 
       - name: Commit & push all changes
         run: |          

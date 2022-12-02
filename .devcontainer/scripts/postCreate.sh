@@ -8,7 +8,7 @@ sudo apt-get -qq -y update --no-install-recommends &&
 	sudo apt-get -qq clean -y
 
 # update pip
-pip install --no-cache-dir --upgrade pip
+python -m pip install --no-cache-dir --upgrade pip
 
 # create .gitignore fn
 function gi() {

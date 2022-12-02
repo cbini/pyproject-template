@@ -27,6 +27,7 @@
     "editor.defaultFormatter": "trunk.io"
   },
   "python.analysis.autoImportCompletions": false,
+  "python.linting.pylintEnabled": false,
   "python.linting.ignorePatterns": [
     "**/site-packages/**/*.py",
     ".vscode/*.py",

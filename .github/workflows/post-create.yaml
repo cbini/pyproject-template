@@ -1,8 +1,6 @@
 name: Post-Create Setup
 
-on: 
-  create: null
-  workflow_dispatch: null
+on: create
 
 jobs:
   post_create:
@@ -35,7 +33,7 @@ jobs:
             curl -sL "https://www.toptal.com/developers/gitignore/api/${1}"
           }
           gi linux,macos,windows,python >.gitignore
-      
+
       - name: Configure git & commit changes
         # trunk-ignore(actionlint/expression)
         run: |
@@ -49,10 +47,9 @@ jobs:
           curl https://get.trunk.io -fsSL | bash -s -- -y
           trunk init --yes-to-all --nocheck-sample
           trunk actions enable trunk-announce trunk-check-pre-push trunk-fmt-pre-commit
-          trunk fmt --all --ci
 
       - name: Commit & push all changes
-        run: |          
+        run: |
           git add -A
           git commit -m "Initial Trunk commit"
           git push origin main

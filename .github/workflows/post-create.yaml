@@ -47,6 +47,7 @@ jobs:
           curl https://get.trunk.io -fsSL | bash -s -- -y
           trunk init --yes-to-all --nocheck-sample
           trunk actions enable trunk-announce trunk-check-pre-push trunk-fmt-pre-commit
+          trunk fmt --all --fix --ci
           trunk check --all --fix --ci
 
       - name: Commit & push all changes

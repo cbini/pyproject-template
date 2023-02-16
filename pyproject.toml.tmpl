@@ -19,7 +19,6 @@ build-backend = "pdm.pep517.api"
 dev = ["pytest"]
 
 [tool.pdm.scripts]
-post_lock = { shell = "pdm export -f requirements -o requirements.txt", help = "Export the locked packages set to requirements.txt" }
 clean-build = { shell = "bash .pdm/scripts/clean-build.sh", help = "remove build artifacts" }
 clean-pyc = { shell = "bash .pdm/scripts/clean-pyc.sh", help = "remove Python file artifacts" }
 clean-test = { shell = "bash .pdm/scripts/clean-test.sh", help = "remove test and coverage artifacts" }

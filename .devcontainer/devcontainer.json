@@ -4,7 +4,7 @@
     "ghcr.io/devcontainers-contrib/features/pdm:2": {},
     "ghcr.io/trunk-io/devcontainer-feature/trunk:1": {},
     "ghcr.io/devcontainers-contrib/features/mkdocs:2": {
-      "mkdocstringsPlugin": "latest"
+      "plugins": "mkdocs-material mkdocstrings[python]"
     }
   },
   "postCreateCommand": "bash .devcontainer/scripts/postCreate.sh",

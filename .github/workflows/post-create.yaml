@@ -3,6 +3,9 @@ name: Post-Create Setup
 on: 
   create: null
   workflow_dispatch: null
+
+permissions:
+  contents: write
   
 jobs:
   post_create:

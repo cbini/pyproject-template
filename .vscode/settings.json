@@ -7,7 +7,6 @@
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 88,
   "githubPullRequests.ignoredPullRequestBranches": ["main"],
-  "python.defaultInterpreterPath": "/workspaces/teamster/.venv/bin/python",
   "files.associations": {
     "*.toml": "toml",
     "*.env": "shellscript"
@@ -30,6 +29,7 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "python.defaultInterpreterPath": ".venv/bin/python",
   "python.testing.pytestArgs": ["tests", "--capture=no"],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,

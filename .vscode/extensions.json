@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "github.codespaces",
+    "github.remotehub",
     "ms-python.vscode-pylance",
     "ms-python.python",
     "trunk.io"

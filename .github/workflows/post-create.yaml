@@ -13,10 +13,11 @@ jobs:
 
       # https://github.com/octokit/request-action
       - name: GET user from API
-        uses: octokit/request-action@v2.1.0
+        uses: octokit/request-action@v2.1.9
         id: get_user
         with:
           route: GET /users/{username}
+          username: ${{ github.actor }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

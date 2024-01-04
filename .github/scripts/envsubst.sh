@@ -15,6 +15,11 @@ for tmpl_in in $(tree -af -I ".git|.trunk" --noreport -F -i); do
 
 		rm "${tmpl_in}"
 	fi
+ 
+	if [[ ${tmpl_in} == "./README.md.tmpl" ]]; then
+		echo "Moving file: ./README.md => docs/README.md"
+		mkdir -p docs && mv ./README.md docs/README.md
+	fi
 done
 
 # self-destruct

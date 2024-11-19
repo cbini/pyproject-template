@@ -1,15 +1,20 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": {
-    "ghcr.io/devcontainers-contrib/features/pdm:2": {},
-    "ghcr.io/trunk-io/devcontainer-feature/trunk:1": {},
-    "ghcr.io/devcontainers-contrib/features/mkdocs:2": {
-      "plugins": "mkdocs-material mkdocstrings[python]"
-    }
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {},
+    "ghcr.io/itsmechlark/features/1password:1": {},
+    "ghcr.io/trunk-io/devcontainer-feature/trunk:1": {}
   },
   "postCreateCommand": "bash .devcontainer/scripts/postCreate.sh",
   "postStartCommand": "bash .devcontainer/scripts/postStart.sh",
   "containerEnv": {
-    "PYTHONDONTWRITEBYTECODE": "1"
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TRUNK_TELEMETRY": "off",
+    "UV_ENV_FILE": "env/.env"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["trunk.io", "ms-python.python"]
+    }
   }
 }

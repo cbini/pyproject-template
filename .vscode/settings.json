@@ -1,4 +1,6 @@
 {
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.defaultFormatter": "trunk.io",
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
@@ -6,10 +8,22 @@
   "editor.renderWhitespace": "all",
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 88,
+  "git.confirmSync": false,
+  "git.ignoreRebaseWarning": true,
   "githubPullRequests.ignoredPullRequestBranches": ["main"],
+  "python.createEnvironment.trigger": "off",
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "python.envFile": "${workspaceFolder}/env/.env",
+  "python.terminal.activateEnvironment": false,
+  "python.testing.pytestArgs": ["tests", "--capture=no"],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "testing.showAllMessages": true,
+  "trunk.showPreexistingIssues": true,
   "files.associations": {
-    "*.toml": "toml",
-    "*.env": "shellscript"
+    "*.env": "shellscript",
+    "*.sql": "jinja-sql",
+    "*.toml": "toml"
   },
   "files.exclude": {
     "**/.git": false,
@@ -26,16 +40,7 @@
     "**/.trunk/*out/": true,
     "**/.trunk/*plugins/": true
   },
-  "[json]": {
+  "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "python.defaultInterpreterPath": ".venv/bin/python",
-  "python.testing.pytestArgs": ["tests", "--capture=no"],
-  "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true,
-  "python.analysis.typeCheckingMode": "basic",
-  "python.createEnvironment.trigger": "off",
-  "python.terminal.activateEnvironment": false
-  "testing.showAllMessages": true,
-  "trunk.numJobs": 1,
+  }
 }
